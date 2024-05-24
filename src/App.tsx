@@ -4,11 +4,12 @@ import { getInfo } from "./redux/fetchApiSlice";
 import TopSkills from "./components/TopSkills";
 import ProgressBar from "./components/ProgressBar";
 import TotalEmployee from "./components/TotalEmployee";
-import TotalCourses from "./components/TotalCourses";
 import LeaderboardEmp from "./components/LeaderboardEmp";
 import Graphs from "./components/Graphs";
 import Header from "./components/Header";
 import Teams from "./components/Teams";
+import Courses from "./components/Courses";
+import ActivityHours from "./components/ActivityHours";
 
 function App() {
   const employeesData = useAppSelector((store) => store.data.data);
@@ -27,8 +28,8 @@ function App() {
       <div className="flex space-x-4 container">
         <div className="flex space-x-4 basis-3/4 ">
           <TotalEmployee />
-          <TotalCourses />
           <ProgressBar />
+          <ActivityHours />
         </div>
         <div className="flex basis-1/4">
           <LeaderboardEmp />
@@ -38,8 +39,9 @@ function App() {
         <Graphs />
         <TopSkills />
       </div>
-      <div className="flex container">
+      <div className="flex container space-x-4">
         <Teams />
+        <Courses />
       </div>
     </div>
   );

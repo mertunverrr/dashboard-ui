@@ -2,6 +2,13 @@ import { useState } from "react";
 import { useAppSelector } from "../redux/hooks";
 import { FaStar } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Image1 from "../assets/pexels-alipazani-2613260.jpg";
+import Image2 from "../assets/pexels-heitorverdifotos-2169434.jpg";
+import Image3 from "../assets/pexels-italo-melo-881954-2379005.jpg";
+import Image4 from "../assets/pexels-latronico-713520.jpg";
+import Image5 from "../assets/pexels-pixabay-415829.jpg";
+
+const images = [Image1, Image2, Image3, Image4, Image5];
 
 function Teams() {
   const [showDetail, setShowDetail] = useState<boolean>(false);
@@ -37,10 +44,10 @@ function Teams() {
   const currentTeam = teamsData?.[index];
 
   return (
-    <section className="flex rounded-xl basis-3/5 bg-red-200 px-16 py-4 relative overflow-hidden">
+    <section className="flex rounded-xl basis-7/12 bg-red-200 px-20 py-6 relative overflow-hidden">
       {index > 0 && (
         <button
-          className="z-50 w-10 h-10 bg-yellow-300 absolute rounded-full flex justify-center items-center left-2 bottom-1/2 translate-y-1/2 opacity-80"
+          className="z-50 w-12 h-12 bg-yellow-300 absolute rounded-full flex justify-center items-center left-2 bottom-1/2 translate-y-1/2 opacity-80"
           onClick={handlePrevious}
         >
           <IoIosArrowBack className="text-3xl" />
@@ -48,7 +55,7 @@ function Teams() {
       )}
       <div className={`w-full transition-transform ${animationClass}`}>
         {showDetail ? (
-          <div className="grid grid-cols-3 gap-x-7 gap-y-4">
+          <div className="grid grid-cols-3 gap-x-6 gap-y-4 relative h-full">
             {currentTeam?.employees.map((employee, ind) => (
               <div key={ind} className="basis-1/2">
                 <div className="flex justify-between items-center relative">
@@ -84,7 +91,7 @@ function Teams() {
             ))}
             <div className="col-span-3 flex justify-start">
               <button
-                className="px-2 py-1 bg-blue-300 rounded-md"
+                className="px-2 py-1 bg-blue-300 rounded-md absolute -bottom-2.5 left-0"
                 onClick={() => setShowDetail(false)}
               >
                 Back
@@ -92,19 +99,33 @@ function Teams() {
             </div>
           </div>
         ) : currentTeam ? (
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col h-full justify-between">
             <div className="flex flex-col">
               <div className="flex justify-between items-center">
-                <h3 className="font-gemunu tracking-wide text-xl font-semibold text-pink-500">
+                <h3 className="font-gemunu tracking-wide text-2xl font-semibold text-pink-500">
                   {currentTeam.title}
                 </h3>
               </div>
-              <h6 className="font-medium -mt-1 mb-2">
+              <h6 className="font-medium mb-5 font-gemunu text-lg">
                 Team Score: <span>{currentTeam.overall_score}</span>
               </h6>
-              <p className="text-teal-800 text-sm">{currentTeam.description}</p>
+              <p className="text-green-800 text-sm">
+                {currentTeam.description}
+              </p>
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-between">
+              <div className="flex">
+                {Array.from({ length: currentTeam.total_employee_count }).map(
+                  (_, i) => (
+                    <img
+                      key={i}
+                      src={images[i % images.length]}
+                      alt={`Employee ${i + 1}`}
+                      className="rounded-full object-cover w-12 h-12 mb-1 -mr-4 opacity-85"
+                    />
+                  )
+                )}
+              </div>
               <button
                 className="bg-gray-600 w-32 py-1 text-white text-xs font-semibold font-gemunu tracking-wider border rounded-xl shadow-md hover:scale-110 hover:bg-green-500 transition duration-300 mt-4"
                 onClick={() => setShowDetail(true)}
@@ -121,7 +142,7 @@ function Teams() {
       </div>
       {index < teamsData.length - 1 && (
         <button
-          className="w-10 h-10 bg-yellow-300 absolute rounded-full flex justify-center items-center right-2 bottom-1/2 translate-y-1/2 opacity-80"
+          className="w-12 h-12 bg-yellow-300 absolute rounded-full flex justify-center items-center right-2 bottom-1/2 translate-y-1/2 opacity-80"
           onClick={handleNext}
         >
           <IoIosArrowForward className="text-3xl" />

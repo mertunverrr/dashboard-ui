@@ -22,6 +22,8 @@ export default {
       },
       spacing: {
         '5.5' : '22px',
+        '0.75' : '3px',
+        '0.25' : '1px'
       },
       keyframes: {
         slideLeftIn: {
