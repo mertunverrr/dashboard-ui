@@ -11,7 +11,7 @@ const ProgressBar: React.FC = () => {
 
   return (
     <div className="flex flex-col pt-3 px-6 basis-1/3 bg-cardBgColor rounded-md shadow-lg">
-      <h2 className="font-gemunu tracking-wide text-2xl font-semibold text-titleColor">
+      <h2 className="font-gemunu tracking-wide text-xl lg:text-2xl font-semibold text-titleColor">
         Average Employee Score
       </h2>
       <div className="relative flex justify-center mt-2">
@@ -23,8 +23,8 @@ const ProgressBar: React.FC = () => {
         >
           <defs>
             <linearGradient id="grad1">
-              <stop offset="0%" stop-color="#cfc9f5" />
-              <stop offset="100%" stop-color="#5A4FCF " />
+              <stop offset="0%" stopColor="#cfc9f5" />
+              <stop offset="100%" stopColor="#5A4FCF " />
             </linearGradient>
           </defs>
           <path
@@ -32,7 +32,7 @@ const ProgressBar: React.FC = () => {
             stroke="#d3d3d3"
             strokeWidth="10"
             fill="none"
-            stroke-linecap="round"
+            strokeLinecap="round"
           />
           <path
             d={`M10,50 A${50},${50} 0 0,1 110,50`}
@@ -41,7 +41,7 @@ const ProgressBar: React.FC = () => {
             fill="none"
             strokeDasharray={circleCircumference}
             strokeDashoffset={progress}
-            stroke-linecap="round"
+            strokeLinecap="round"
           />
         </svg>
         <div className="absolute top-20 text-center flex flex-col text-textColor space-y-1">

@@ -57,7 +57,10 @@ function ActivityHours() {
   };
 
   return (
-    <div className="py-3 px-4 bg-cardBgColor rounded-lg shadow-md basis-1/3">
+    <div
+      id="activity"
+      className="py-3 px-6 bg-cardBgColor rounded-lg shadow-md basis-1/3"
+    >
       <div className="flex justify-between items-center mb-2">
         <button
           onClick={handlePrevMonth}
@@ -65,7 +68,7 @@ function ActivityHours() {
         >
           &lt;
         </button>
-        <h2 className="text-lg font-semibold text-textColor">
+        <h2 className="lg:text-lg font-semibold text-textColor">
           {format(currentMonth, "MMMM yyyy")}
         </h2>
         <button

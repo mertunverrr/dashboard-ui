@@ -32,7 +32,7 @@ function Graphs() {
   const skillsInDev = employeesData.skills_in_development;
 
   return (
-    <div className="h-60 w-full bg-cardBgColor rounded-md container basis-3/4 px-6 py-3 shadow-lg">
+    <div className="hidden lg:flex lg:flex-col h-60 w-full bg-cardBgColor rounded-md container basis-3/4 px-6 py-3 shadow-lg">
       <h3 className="font-gemunu tracking-wide text-2xl font-semibold text-titleColor mb-2.5">
         Skills in Development
       </h3>
@@ -74,7 +74,7 @@ function Graphs() {
           <Bar
             dataKey="employees"
             fill="#5A4FCF"
-            barSize={50}
+            barSize={40}
             shape={renderRoundedBar as any}
           />
         </BarChart>

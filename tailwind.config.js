@@ -23,7 +23,8 @@ export default {
       spacing: {
         '5.5' : '22px',
         '0.75' : '3px',
-        '0.25' : '1px'
+        '0.25' : '1px',
+        '18' : '4.5rem'
       },
       colors: {
           bgColor : "#F0F0F0",

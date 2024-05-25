@@ -8,9 +8,12 @@ function LeaderboardEmp() {
   const topEmployees = employeesData.top_employees;
 
   return (
-    <div className="max-w-md mx-auto bg-cardBgColor rounded-md shadow-lg overflow-hidden w-full">
+    <div
+      id="leaderboard"
+      className="bg-cardBgColor rounded-md shadow-lg overflow-hidden w-full"
+    >
       <div className="bg-gradient-to-r from-violet-300 to-darkPurpleColor px-6 py-2.5 flex justify-between">
-        <h2 className="font-gemunu tracking-wide text-2xl font-semibold text-white">
+        <h2 className="font-gemunu tracking-wide text-xl lg:text-2xl font-semibold text-white">
           Leaderboard
         </h2>
         <button className="text-white px-2.5 text-xs font-semibold font-gemunu tracking-wider border rounded-xl shadow-md">
@@ -28,27 +31,36 @@ function LeaderboardEmp() {
                 <i className="uil uil-trophy"></i>
               </div>
               <div className="ml-3.5">
-                <h3 className="font-semibold text-textColor flex items-center">
+                <h3 className="text-sm lg:text-base font-semibold text-textColor flex items-center">
                   {index === 0 && (
-                    <img src={image1} className="w-5 h-5 rounded-full mr-2" />
+                    <img
+                      src={image1}
+                      className="w-4 h-4 lg:w-5 lg:h-5 rounded-full mr-2"
+                    />
                   )}
                   {index === 1 && (
-                    <img src={image2} className="w-5 h-5 rounded-full mr-2" />
+                    <img
+                      src={image2}
+                      className="w-4 h-4 lg:w-5 lg:h-5 rounded-full mr-2"
+                    />
                   )}
                   {index === 2 && (
-                    <img src={image3} className="w-5 h-5 rounded-full mr-2" />
+                    <img
+                      src={image3}
+                      className="w-4 h-4 lg:w-5 lg:h-5 rounded-full mr-2"
+                    />
                   )}
                   {employee.name}
                 </h3>
                 <div className="overflow-hidden relative -mt-0.5">
-                  <p className="text-sm text-textColor font-light mb-0 whitespace-nowrap">
+                  <p className="text-[13px] lg:text-sm text-textColor font-light mb-0 whitespace-nowrap">
                     {employee.title}
                   </p>
                 </div>
               </div>
             </div>
             <div className="text-right">
-              <span className="text-xl font-semibold text-darkPurpleColor">
+              <span className="text-lg lg:text-xl font-semibold text-darkPurpleColor">
                 {employee.current_score} Pts
               </span>
             </div>

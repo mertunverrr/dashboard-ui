@@ -8,7 +8,10 @@ function Courses() {
   const upcomingCourses = employeesData.upcoming_courses;
 
   return (
-    <div className="container px-6 py-3 bg-cardBgColor rounded-md shadow-lg basis-5/12 text-textColor">
+    <div
+      id="courses"
+      className="container px-6 py-3 bg-cardBgColor rounded-md shadow-lg basis-5/12 text-textColor"
+    >
       <div className="flex space-x-8">
         <h4
           className={
@@ -45,12 +48,12 @@ function Courses() {
           >
             <div className="flex items-center">
               <span className="w-2 h-2 bg-yellowColor rounded-full mr-2"></span>
-              <h3 className="text-lg font-gemunu font-semibold mb-1">
+              <h3 className="lg:text-lg font-gemunu font-semibold mb-1">
                 {course.title}
               </h3>
             </div>
 
-            <p className="mb-1 text-sm">{course.description}</p>
+            <p className="mb-1 text-[13px] lg:text-sm">{course.description}</p>
             <div className="flex justify-between text-xs mb-0">
               <span>
                 Instructor:{" "}
@@ -72,12 +75,12 @@ function Courses() {
           >
             <div className="flex items-center">
               <span className="w-2 h-2 bg-greenColor rounded-full mr-2"></span>
-              <h3 className="text-lg font-gemunu font-semibold mb-1">
+              <h3 className="lg:text-lg font-gemunu font-semibold mb-1">
                 {course.title}
               </h3>
             </div>
 
-            <p className="mb-1 text-sm">{course.description}</p>
+            <p className="mb-1 text-[13px] lg:text-sm">{course.description}</p>
             <div className="flex justify-between text-xs mb-0">
               <span>
                 Instructor:{" "}
