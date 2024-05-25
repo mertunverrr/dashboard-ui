@@ -44,10 +44,10 @@ function Teams() {
   const currentTeam = teamsData?.[index];
 
   return (
-    <section className="flex rounded-xl basis-7/12 bg-red-200 px-20 py-6 relative overflow-hidden">
+    <section className="flex rounded-md shadow-lg basis-7/12 bg-cardBgColor px-20 py-6 relative overflow-hidden">
       {index > 0 && (
         <button
-          className="z-50 w-12 h-12 bg-yellow-300 absolute rounded-full flex justify-center items-center left-2 bottom-1/2 translate-y-1/2 opacity-80"
+          className="z-50 w-12 h-12 bg-lightPurpleColor text-secondTextColor absolute rounded-full flex justify-center items-center left-2 bottom-1/2 translate-y-1/2 opacity-70 hover:opacity-100"
           onClick={handlePrevious}
         >
           <IoIosArrowBack className="text-3xl" />
@@ -55,61 +55,73 @@ function Teams() {
       )}
       <div className={`w-full transition-transform ${animationClass}`}>
         {showDetail ? (
-          <div className="grid grid-cols-3 gap-x-6 gap-y-4 relative h-full">
+          <div className="grid grid-cols-3 gap-x-6 gap-y-4 relative h-full text-textColor">
             {currentTeam?.employees.map((employee, ind) => (
               <div key={ind} className="basis-1/2">
                 <div className="flex justify-between items-center relative">
                   <div className="flex flex-col">
-                    <h4 className="font-gemunu tracking-wide text-2xl font-semibold text-pink-500">
+                    <h4 className="font-gemunu tracking-wide text-2xl font-semibold">
                       {employee.name}
                     </h4>
-                    <h6 className="-mt-1.5 mb-1.5 whitespace-nowrap text-lg font-gemunu ">
+                    <h6 className="-mt-1.5 mb-1.5 whitespace-nowrap text-lg font-gemunu tracking-tight">
                       {employee.title}
                     </h6>
                   </div>
-                  <FaStar className="text-purple-300 text-5xl" />
-                  <span className="text-sm font-bold absolute top-5.5 right-3.5">
+                  <FaStar className="text-titleColor text-5xl" />
+                  <span className="text-sm font-bold absolute top-5.5 right-3.5 text-white">
                     {employee.current_score.toFixed(1)}
                   </span>
                 </div>
                 <div className="flex flex-col space-y-0.5">
                   <span className="text-sm">{employee.email}</span>
-                  <p className="text-sm ">
+                  <p className="text-sm font-medium">
                     Skill being developed:{" "}
                     {employee.skills_being_developed.map((skill, i) => (
-                      <span key={i} className="text-yellow-600">
+                      <span key={i} className="font-normal">
                         {skill}
                         {i < employee.skills_being_developed.length - 1 && ", "}
                       </span>
                     ))}
                   </p>
-                  <p className="text-sm">
-                    Lessons taken: <span>{employee.lessons_taken}</span>
+                  <p className="text-sm font-medium">
+                    Lessons taken:{" "}
+                    <span className="font-normal">
+                      {employee.lessons_taken}
+                    </span>
                   </p>
                 </div>
               </div>
             ))}
             <div className="col-span-3 flex justify-start">
               <button
-                className="px-2 py-1 bg-blue-300 rounded-md absolute -bottom-2.5 left-0"
+                className="w-32 py-2 bg-darkPurpleColor text-white text-sm font-semibold font-gemunu tracking-wider border rounded-xl shadow-md hover:scale-110 hover:brightness-125 transition duration-300  absolute -bottom-2.5 left-0"
                 onClick={() => setShowDetail(false)}
               >
                 Back
+              </button>
+              <button className="py-2 text-sm font-medium bg-redColor rounded-md px-4 text-white hover:scale-105 hover:brightness-110 brightness-95 absolute -bottom-2.5 right-0">
+                Add New Employee
               </button>
             </div>
           </div>
         ) : currentTeam ? (
           <div className="flex flex-col h-full justify-between">
             <div className="flex flex-col">
-              <div className="flex justify-between items-center">
-                <h3 className="font-gemunu tracking-wide text-2xl font-semibold text-pink-500">
-                  {currentTeam.title}
-                </h3>
+              <div className="flex flex-row justify-between">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-gemunu tracking-wide text-2xl font-semibold text-titleColor">
+                    {currentTeam.title}
+                  </h3>
+                </div>
+                <button className="text-sm font-medium bg-redColor rounded-md py-1 px-4 text-white hover:scale-105 hover:brightness-110 brightness-95">
+                  Create new team
+                </button>
               </div>
-              <h6 className="font-medium mb-5 font-gemunu text-lg">
+
+              <h6 className="font-medium mb-5 font-gemunu text-lg text-textColor">
                 Team Score: <span>{currentTeam.overall_score}</span>
               </h6>
-              <p className="text-green-800 text-sm">
+              <p className="text-textColor text-sm">
                 {currentTeam.description}
               </p>
             </div>
@@ -127,7 +139,7 @@ function Teams() {
                 )}
               </div>
               <button
-                className="bg-gray-600 w-32 py-1 text-white text-xs font-semibold font-gemunu tracking-wider border rounded-xl shadow-md hover:scale-110 hover:bg-green-500 transition duration-300 mt-4"
+                className="bg-darkPurpleColor w-32 py-2 text-white text-sm font-semibold font-gemunu tracking-wider border rounded-xl shadow-md hover:scale-110 hover:brightness-125 transition duration-300 mt-4"
                 onClick={() => setShowDetail(true)}
               >
                 {currentTeam.total_employee_count} Employees Detail
@@ -142,7 +154,7 @@ function Teams() {
       </div>
       {index < teamsData.length - 1 && (
         <button
-          className="w-12 h-12 bg-yellow-300 absolute rounded-full flex justify-center items-center right-2 bottom-1/2 translate-y-1/2 opacity-80"
+          className="w-12 h-12 bg-lightPurpleColor text-secondTextColor absolute rounded-full flex justify-center items-center right-2 bottom-1/2 translate-y-1/2 opacity-70 hover:opacity-100"
           onClick={handleNext}
         >
           <IoIosArrowForward className="text-3xl" />

@@ -57,25 +57,25 @@ function ActivityHours() {
   };
 
   return (
-    <div className="py-3 px-4 bg-white rounded-lg shadow-lg w-80">
+    <div className="py-3 px-4 bg-cardBgColor rounded-lg shadow-md basis-1/3">
       <div className="flex justify-between items-center mb-2">
         <button
           onClick={handlePrevMonth}
-          className="p-1 rounded-md bg-gray-200 hover:bg-gray-300"
+          className="px-2 rounded-md bg-violet-300 hover:bg-darkPurpleColor text-secondTextColor font-semibold"
         >
           &lt;
         </button>
-        <h2 className="text-lg font-semibold">
+        <h2 className="text-lg font-semibold text-textColor">
           {format(currentMonth, "MMMM yyyy")}
         </h2>
         <button
           onClick={handleNextMonth}
-          className="p-1 rounded-md bg-gray-200 hover:bg-gray-300"
+          className="px-2 rounded-md bg-violet-300 hover:bg-darkPurpleColor text-secondTextColor font-semibold"
         >
           &gt;
         </button>
       </div>
-      <div className="grid grid-cols-7 gap-1 text-center text-xs font-semibold">
+      <div className="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-textColor">
         <span>Sun</span>
         <span>Mon</span>
         <span>Tue</span>
@@ -92,17 +92,17 @@ function ActivityHours() {
           return isCurrentMonth ? (
             <div
               key={dateStr}
-              className={`relative p-0.75 border rounded-lg cursor-pointer hover:bg-gray-100 ${
-                activity ? "text-black" : "text-gray-400"
+              className={`relative p-0.75 border rounded-lg cursor-pointer bg-white hover:bg-gray-200 ${
+                activity ? "text-textColor" : "text-gray-400"
               }`}
               onClick={() => handleDayClick(dateStr)}
             >
-              <div className="text-xs">{format(day, "d")}</div>
+              <div className="text-xs text-text-Color">{format(day, "d")}</div>
               {activity && (
-                <div className="absolute bottom-0.25 left-1/2 transform -translate-x-1/2 h-1 w-1 bg-blue-500 rounded-full"></div>
+                <div className="absolute bottom-0.25 left-1/2 transform -translate-x-1/2 h-1 w-1 bg-darkPurpleColor rounded-full"></div>
               )}
               {selectedDate === dateStr && activity && (
-                <div className="absolute top-12 left-0 mt-2 w-56 p-2 bg-white border rounded-lg shadow-lg z-10">
+                <div className="absolute top-12 left-0 mt-2 w-56 p-2 bg-white text-textColor border rounded-lg shadow-xl z-10">
                   <div className="text-xs">
                     <strong>Date:</strong> {formatDate(activity.date)}
                     <br />

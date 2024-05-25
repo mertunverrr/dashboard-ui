@@ -23,7 +23,7 @@ function App() {
   }, [employeesData]);
 
   return (
-    <div className="bg-gray-200 min-h-screen space-y-4 pb-20 font-opensans">
+    <div className="bg-bgColor min-h-screen space-y-4 pb-6 font-opensans">
       <Header />
       <div className="flex space-x-4 container">
         <div className="flex space-x-4 basis-3/4 ">

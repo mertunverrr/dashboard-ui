@@ -25,6 +25,18 @@ export default {
         '0.75' : '3px',
         '0.25' : '1px'
       },
+      colors: {
+          bgColor : "#F0F0F0",
+          cardBgColor: "#EFEFFF",
+          titleColor: "#7F71E8",
+          lightPurpleColor: "rgb(221 214 254)",
+          darkPurpleColor: "#5A4FCF",
+          textColor: "#2E2E2E",
+          secondTextColor: "#FFFFFF",
+          greenColor: "#4CAF50",
+          redColor:"#F44336",
+          yellowColor: "#F4C724"
+      },
       keyframes: {
         slideLeftIn: {
           '0%': { transform: 'translateX(100%)' },

@@ -14,7 +14,6 @@ const renderRoundedBar = (
   props: BarProps & { fill: string; x: number; y: number }
 ) => {
   const { x, y, width, height, fill } = props;
-  const radius = 10; // Yuvarlatma yarıçapı
 
   return (
     <Rectangle
@@ -23,7 +22,7 @@ const renderRoundedBar = (
       width={width}
       height={height}
       fill={fill}
-      radius={[radius, radius, 0, 0]} // Üst köşeleri yuvarlat
+      radius={[8, 8, 0, 0]}
     />
   );
 };
@@ -33,8 +32,8 @@ function Graphs() {
   const skillsInDev = employeesData.skills_in_development;
 
   return (
-    <div className="h-60 w-full bg-white rounded-xl container basis-3/4 px-6 py-3 shadow-lg">
-      <h3 className="font-gemunu tracking-wide text-2xl font-semibold text-indigo-600 mb-2.5">
+    <div className="h-60 w-full bg-cardBgColor rounded-md container basis-3/4 px-6 py-3 shadow-lg">
+      <h3 className="font-gemunu tracking-wide text-2xl font-semibold text-titleColor mb-2.5">
         Skills in Development
       </h3>
       <ResponsiveContainer>
@@ -49,34 +48,34 @@ function Graphs() {
           className="bg-transparent"
         >
           <CartesianGrid
-            strokeDasharray="3 3"
-            stroke="hsl(210, 22%, 90%)"
+            strokeDasharray="3 5"
+            stroke="#2E2E2E"
             horizontal={true}
             vertical={false}
           />
           <XAxis
             dataKey="skill"
-            className="text-[11px]"
+            className="text-[11px] tracking-tight"
             interval={0}
-            stroke="hsl(210, 22%, 70%)"
+            stroke="#2E2E2E"
           />
           <YAxis
             domain={[0, 6]}
-            stroke="hsl(210, 22%, 70%)"
+            stroke="#2E2E2E"
             className="text-sm"
             label={{
               value: "People",
               position: "insideTop",
               dy: -30,
               dx: 32,
-              fill: "hsl(210, 22%, 70%)",
+              fill: "#2E2E2E",
             }}
           />
           <Bar
             dataKey="employees"
-            fill="hsl(228, 34%, 66%)"
+            fill="#5A4FCF"
             barSize={50}
-            shape={renderRoundedBar as any} // shape özelliği için renderRoundedBar işlevini kullan
+            shape={renderRoundedBar as any}
           />
         </BarChart>
       </ResponsiveContainer>

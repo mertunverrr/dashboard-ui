@@ -8,31 +8,31 @@ function Courses() {
   const upcomingCourses = employeesData.upcoming_courses;
 
   return (
-    <div className="container mx-auto px-6 py-3 bg-white rounded-lg shadow-md basis-5/12">
+    <div className="container px-6 py-3 bg-cardBgColor rounded-md shadow-lg basis-5/12 text-textColor">
       <div className="flex space-x-8">
         <h4
           className={
             changeScreen === "progress"
-              ? " mb-3 flex justify-center items-center font-gemunu text-red-500 cursor-pointer hover:text-red-500"
-              : " mb-3 flex justify-center items-center font-gemunu cursor-pointer hover:text-red-500"
+              ? " mb-3 flex justify-center items-center font-gemunu text-titleColor cursor-pointer hover:text-darkPurpleColor"
+              : " mb-3 flex justify-center items-center font-gemunu cursor-pointer hover:text-darkPurpleColor"
           }
           onClick={() => setChangeScreen("progress")}
         >
           {changeScreen === "progress" && (
-            <span className="w-2 h-2 rounded-full bg-green-600 mr-1"></span>
+            <span className="w-2 h-2 rounded-full bg-yellowColor mr-1"></span>
           )}
           In Progress Courses
         </h4>
         <h4
           className={
             changeScreen === "upcoming"
-              ? " mb-3 flex justify-center items-center font-gemunu text-red-500 cursor-pointer hover:text-red-500"
-              : " mb-3 flex justify-center items-center font-gemunu cursor-pointer hover:text-red-500"
+              ? " mb-3 flex justify-center items-center font-gemunu text-titleColor cursor-pointer hover:text-darkPurpleColor"
+              : " mb-3 flex justify-center items-center font-gemunu cursor-pointer hover:text-darkPurpleColor"
           }
           onClick={() => setChangeScreen("upcoming")}
         >
           {changeScreen === "upcoming" && (
-            <span className="w-2 h-2 rounded-full bg-green-600 mr-1"></span>
+            <span className="w-2 h-2 rounded-full bg-greenColor mr-1"></span>
           )}
           Upcoming Courses
         </h4>
@@ -41,11 +41,15 @@ function Courses() {
         progressCourses.map((course, index) => (
           <div
             key={index}
-            className="bg-blue-100 px-3 py-2 pb-3 rounded-lg mb-1"
+            className="bg-lightPurpleColor px-3 py-2 pb-3 rounded-lg mb-1"
           >
-            <h3 className="text-lg font-gemunu font-semibold mb-1">
-              {course.title}
-            </h3>
+            <div className="flex items-center">
+              <span className="w-2 h-2 bg-yellowColor rounded-full mr-2"></span>
+              <h3 className="text-lg font-gemunu font-semibold mb-1">
+                {course.title}
+              </h3>
+            </div>
+
             <p className="mb-1 text-sm">{course.description}</p>
             <div className="flex justify-between text-xs mb-0">
               <span>
@@ -64,11 +68,15 @@ function Courses() {
         upcomingCourses.map((course, index) => (
           <div
             key={index}
-            className="bg-blue-100 px-3 py-2 pb-3 rounded-lg mb-1"
+            className="bg-lightPurpleColor px-3 py-2 pb-3 rounded-lg mb-1"
           >
-            <h3 className="text-lg font-gemunu font-semibold mb-1">
-              {course.title}
-            </h3>
+            <div className="flex items-center">
+              <span className="w-2 h-2 bg-greenColor rounded-full mr-2"></span>
+              <h3 className="text-lg font-gemunu font-semibold mb-1">
+                {course.title}
+              </h3>
+            </div>
+
             <p className="mb-1 text-sm">{course.description}</p>
             <div className="flex justify-between text-xs mb-0">
               <span>

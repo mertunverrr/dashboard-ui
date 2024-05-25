@@ -10,21 +10,21 @@ const ProgressBar: React.FC = () => {
   const progress = (circleCircumference * (100 - percentage)) / 100;
 
   return (
-    <div className="flex flex-col pt-3 px-6 basis-1/3 bg-green-300 rounded-xl">
-      <h2 className="font-gemunu tracking-wide text-2xl font-semibold">
+    <div className="flex flex-col pt-3 px-6 basis-1/3 bg-cardBgColor rounded-md shadow-lg">
+      <h2 className="font-gemunu tracking-wide text-2xl font-semibold text-titleColor">
         Average Employee Score
       </h2>
       <div className="relative flex justify-center mt-2">
         <svg
           className="transform"
-          width="224"
-          height="120"
-          viewBox="0 0 120 54"
+          width="300"
+          height="193"
+          viewBox="0 0 120 55"
         >
           <defs>
             <linearGradient id="grad1">
-              <stop offset="0%" stop-color="yellow" />
-              <stop offset="100%" stop-color="red" />
+              <stop offset="0%" stop-color="#cfc9f5" />
+              <stop offset="100%" stop-color="#5A4FCF " />
             </linearGradient>
           </defs>
           <path
@@ -44,12 +44,12 @@ const ProgressBar: React.FC = () => {
             stroke-linecap="round"
           />
         </svg>
-        <div className="absolute top-10 text-center flex flex-col">
-          <span className="text-2xl font-bold tracking-wide">
-            {averageEmpScore}/{5}
+        <div className="absolute top-20 text-center flex flex-col text-textColor space-y-1">
+          <span className="text-3xl font-bold">
+            {averageEmpScore} / {5}
           </span>
           <span>
-            Rate<i className="uil uil-smile ml-1"></i>
+            Rate<i className="uil uil-smile ml-2"></i>
           </span>
         </div>
       </div>
